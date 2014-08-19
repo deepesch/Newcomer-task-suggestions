@@ -1,0 +1,2 @@
+#!/bin/sh
+~/env/3/bin/python -tt -c "from ts import add_lead; add_lead.main();" "$@"

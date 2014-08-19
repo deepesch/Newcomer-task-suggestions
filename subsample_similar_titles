@@ -1,0 +1,2 @@
+#!/bin/sh
+~/env/3/bin/python -tt -c "from ts import subsample_similar_titles; subsample_similar_titles.main();" "$@"
