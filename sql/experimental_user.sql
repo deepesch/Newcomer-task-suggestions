@@ -1,9 +1,10 @@
 SELECT
     DATABASE() AS wiki,
-    log_user AS user_id,
-    log_timestamp AS user_registration
-FROM logging
+    event_userId AS user_id,
+    timestamp AS user_registration
+FROM log.ServerSideAccountCreation_5487345
 WHERE
-    log_type = "newusers" AND
-    log_action = "create" AND
-    log_timestamp BETWEEN "20140913" AND "20140920";
+    wiki = DATABASE() AND
+    event_isSelfMade AND
+    NOT event_displayMobile AND
+    timestamp BETWEEN "20140913" AND "20140920";

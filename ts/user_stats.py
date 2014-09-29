@@ -35,6 +35,8 @@ from menagerie.formatting import tsv
 from .database import connection
 
 HEADERS = [
+    "wiki",
+    "user_id",
     "day_revisions",
     "day_deleted_revisions",
     "day_main_revisions",
@@ -113,7 +115,13 @@ def run(users, revert_cutoff, revert_radius, dbuser, host, defaults_file):
             )
             
             user_events = chain(
-                [(user.user_id, registration, ('registration', registration, None))],
+                [
+                    (
+                        user.user_id,
+                        registration,
+                        ('registration', registration, None)
+                    )
+                ],
                 (
                     (
                         rev['rev_user'],
@@ -176,6 +184,7 @@ def run(users, revert_cutoff, revert_radius, dbuser, host, defaults_file):
             
             sys.stderr.write("\n")
             output.write([
+                wiki,
                 user.user_id,
                 day_revisions,
                 day_deleted_revisions,

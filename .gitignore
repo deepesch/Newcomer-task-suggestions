@@ -3,6 +3,11 @@ __pycache__/
 *.py[cod]
 *~
 
+#Datasets
+*.created
+*.loaded
+*.tsv
+
 # C extensions
 *.so
 
